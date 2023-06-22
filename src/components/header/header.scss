@@ -1,23 +1,23 @@
 @use '../../scss/' as *;
 
-.logo{
+.logo {
     font-size: 2.5rem;
     font-weight: 600;
 
     @include flex(center, unset);
 
-    img{
+    img {
         margin-right: 10px;
-        width: 50px ;
+        width: 50px;
 
-        @include mobile{
+        @include mobile {
             width: 30px;
             margin-right: 0;
         }
     }
 }
 
-.header{
+.header {
     height: $header-height;
     position: fixed;
     top: 0;
@@ -26,35 +26,35 @@
     z-index: 99;
     transition: height .3s ease, background-color .3s ease;
 
-    &.shrink{
+    &.shrink {
         height: $header-shrink-height;
         background-color: $body-bg;
     }
 
-    &-wrap{
+    &-wrap {
         @include flex(center, space-between);
         height: 100%;
         padding: 0 2rem;
 
-        @include mobile{
+        @include mobile {
             justify-content: center;
         }
     }
 
-    &-nav{
-        @include flex(center,unset);
+    &-nav {
+        @include flex(center, unset);
 
-        & > *~*{
+        &>*~* {
             margin-left: 2rem;
         }
 
-        li{
+        li {
             padding: 5px 0;
             font-weight: 700;
             position: relative;
             font-size: 1.5rem;
 
-            &::after{
+            &::after {
                 content: '';
                 position: absolute;
                 bottom: 0;
@@ -65,10 +65,27 @@
                 height: 2px;
                 background-color: $main-color;
             }
-    
+
             &.active::after,
-            &:hover::after{
+            &:hover::after {
                 width: 100%;
+            }
+        }
+
+        @include mobile {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 5rem;
+            width: 100%;
+            background-color: $body-bg;
+            padding: 0 2rem;
+            box-sizing: $box-shadow;
+
+            @include flex(center, space-between);
+
+            &>*~* {
+                margin-left: 0;
             }
         }
 
